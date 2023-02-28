@@ -1,5 +1,5 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        Player player1 = new Player("Przemek", 1000000.0);
     }
 }
