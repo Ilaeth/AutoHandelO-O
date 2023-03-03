@@ -72,6 +72,23 @@ public class Main  {
                 }
                 backToMenu();
                 break;
+
+            case 12:
+                System.out.println("Koniec?!?! Napewno?");
+                System.out.println("");
+                System.out.println("1. Tak");
+                System.out.println("2. NIE");
+                System.out.println("");
+                System.out.println("Wybierz liczbę i napisz od 1 do 2");
+                int endSwitch = scanner.nextInt();
+                switch (endSwitch) {
+                    case 1:
+                        System.exit(1);
+                        break;
+                    case 2:
+                        backToMenu();
+                        break;
+                }
         }
     }
 
