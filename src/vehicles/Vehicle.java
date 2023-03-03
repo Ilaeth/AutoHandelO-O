@@ -1,22 +1,15 @@
 package vehicles;
 
 public class Vehicle{
-    final protected String vehicleID;
-    final public String model;
-    final public String producer;
-    final public Integer yearOfProduction;
-    public Double price;
+    Enum.Brand brand;
+    Enum.Mileage mileage;
+    Enum.Color color;
+    Enum.Segment segment;
 
-    public Vehicle(String vehicleID, String producer, String model, Integer yearOfProduction, Double price) {
-        this.vehicleID = vehicleID;
-        this.producer = producer;
-        this.model = model;
-        this.yearOfProduction = yearOfProduction;
-        this.price = price;
-    }
-
-    @Override
-    public String toString() {
-        return vehicleID;
+    public Vehicle(Enum.Brand brand, Enum.Mileage mileage, Enum.Color color, Enum.Segment segment) {
+        this.brand = brand;
+        this.mileage = mileage;
+        this.color = color;
+        this.segment = segment;
     }
 }
