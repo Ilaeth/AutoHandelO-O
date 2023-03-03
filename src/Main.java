@@ -1,4 +1,5 @@
-import vehicles.Car;
+import vehicles.Vehicle;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -62,19 +63,18 @@ public class Main  {
 
         switch (firstSwitch) {
             case 1:
-                ArrayList<String> vehicles = new ArrayList<String>();
-
                 System.out.println("Lista pojazdów");
-                System.out.println("");
-
-                System.out.println(vehicles);
-
-                System.out.println("");
-
+                ArrayList<Vehicle> vehicles = Vehicle.generateRandomVehicles(5);
+                int i = 1;
+                for (Vehicle v: vehicles) {
+                    System.out.println("Pojazd " + i + v);
+                    i++;
+                }
                 backToMenu();
                 break;
         }
     }
+
     public static void backToMenu() {
         System.out.println("Co dalej? ");
         menu();
