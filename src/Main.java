@@ -41,15 +41,21 @@ public class Main  {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Main-Menu");
         System.out.println("");
-        System.out.println("1. Lista pojazdów.");
-        System.out.println("2. Moja lista posiadanych pojazdów.");
-        System.out.println("3. Kup/dodaj nowy pojazd.");
-        System.out.println("4. Sprzedaj/usuń pojazd.");
-        System.out.println("5. Mój stan konta.");
-        System.out.println("6. Historia Kupna/Sprzedaży");
-        System.out.println("7. Zakończ/wyłącz program");
+        System.out.println("1. Przeglądaj bazę pojazdów do kupienia.");
+        System.out.println("2. Kup pojazd.");
+        System.out.println("3. Przeglądaj bazę posiadanych pojazdów.");
+        System.out.println("4. Napraw pojazd.");
+        System.out.println("5. Przejrzyj potencjalnych klientów.");
+        System.out.println("6. Sprzedaj pojazd za określoną cenę potencjalnemu klientowi");
+        System.out.println("7. Kup reklamę");
+        System.out.println("8. Sprawdź stan konta");
+        System.out.println("9. Sprawdź historię transakcji");
+        System.out.println("10. Sprawdź historię napraw każdego pojazdu");
+        System.out.println("11. Sprawdź sumę kosztów napraw i mycia dla każdego z posiadanych pojazdów");
         System.out.println("");
-        System.out.println("Wybierz liczbę z menu i napisz od 1 do 7");
+        System.out.println("12. Zakończ/wyłącz program");
+        System.out.println("");
+        System.out.println("Wybierz liczbę z menu i napisz od 1 do 12");
         System.out.println("");
         int firstSwitch = scanner.nextInt();
         System.out.println("Wybrałeś " + firstSwitch);
@@ -57,12 +63,6 @@ public class Main  {
         switch (firstSwitch) {
             case 1:
                 ArrayList<String> vehicles = new ArrayList<String>();
-
-                Car car1 = new Car( "1", "BMW", "X3", 2012, 63000.00);
-                Car car2 = new Car( "2", "BMW", "5", 2014, 125000.00);
-
-                vehicles.add(String.valueOf(car1));
-                vehicles.add(String.valueOf(car2));
 
                 System.out.println("Lista pojazdów");
                 System.out.println("");
