@@ -6,6 +6,9 @@ import java.util.Scanner;
 public class Main  {
     static Player player1 = new Player("Przemek");
     static ArrayList<Vehicle> vehicles = Vehicle.generateRandomVehicles(50);
+    static ArrayList<Client> clients = Client.generateRandomClient(50);
+
+
     public static void main(String[] args) {
         System.out.println("                          Hello Auto-Handel");
         System.out.println("                                                                ░░          ░░\n");
@@ -88,14 +91,29 @@ public class Main  {
                 backToMenu();
                 break;
             }
-            case 4:
+            case 4: {
 
-            case 5:
+            }
+            case 5: {
+                System.out.println("Lista potencjalnych klientów");
+                System.out.println(clients.toString());
+                backToMenu();
+                break;
+            }
+            case 6: {
+                System.out.println("Podaj numer klienta, któremu chcesz sprzedać pojazd");
+                System.out.println(clients.toString());
+                int i = 1;
+                for (Client c : clients) {
+                    System.out.println("Klient " + i + c);
+                    i++;
+                }
+                backToMenu();
+                break;
+            }
+            case 7: {
 
-            case 6:
-
-            case 7:
-
+            }
             case 8: {
                 Player.checkCash(player1);
                 backToMenu();
@@ -106,10 +124,12 @@ public class Main  {
                 backToMenu();
                 break;
             }
-            case 10:
+            case 10: {
 
-            case 11:
+            }
+            case 11: {
 
+            }
             case 12: {
                 System.out.println("Koniec?!?! Napewno?");
                 System.out.println(" ");

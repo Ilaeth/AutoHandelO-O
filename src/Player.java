@@ -8,7 +8,6 @@ public class Player {
     final static BigDecimal DEFAULT_CASH = new BigDecimal("1000000.0");
     BigDecimal cash;
     ArrayList<Vehicle> vehicles = new ArrayList<>();
-    ArrayList<Vehicle> playerGarage= new ArrayList<>();
     ArrayList<String> history=new ArrayList<>();
 
     public Player(String playerName){

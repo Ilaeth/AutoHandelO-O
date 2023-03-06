@@ -20,4 +20,16 @@ public class Enum {
     public enum Segment {
         PREMIUM, STANDARD, BUDGET
     }
+
+    public enum Client {
+        NEW, REGULAR
+    }
+
+    public enum Name {
+        ZOFIA, ANTONI, ZUZANNA, ALEKSANDER, HANNA, NIKODEM, LAURA, FRANCISZEK, MAJA, JAKUB, JULIA, LEON, OLIWIA, MIKOŁAJ, ALICJA, STANISŁAW, POLA, FILIP, LENA
+    }
+
+    public enum LastName {
+        NOWAK, WÓJCIK, KOWALCZYK, WOŹNIAK, KALENIK, KROKOS, NAMYSŁ, PURGAŁ, CHUMAK, SZARO, SENKOWSKI, BRUS, DOBROŃ
+    }
 }
