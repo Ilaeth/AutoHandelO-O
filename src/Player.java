@@ -1,30 +1,27 @@
 import vehicles.Vehicle;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 public class Player {
-    public String playerName;
-    private Double cash;
-    public ArrayList<Vehicle> playerGarage= new ArrayList<>();
-    public ArrayList<String> history=new ArrayList<>();
+    String playerName;
+    final static BigDecimal DEFAULT_CASH = new BigDecimal("1000000.0");
+    BigDecimal cash;
+    ArrayList<Vehicle> vehicles = new ArrayList<>();
+    ArrayList<Vehicle> playerGarage= new ArrayList<>();
+    ArrayList<String> history=new ArrayList<>();
 
-    public Player(String playerName,Double cash){
-        this.playerName=playerName;
-        this.cash = cash;
+    public Player(String playerName){
+        this.playerName = playerName;
+        this.cash = DEFAULT_CASH;
     }
 
-    public boolean PurchaseVehicle(Vehicle vehicle){
-        if(vehicle.price < cash){
-            System.out.println("Vehicle was purchased");
-            cash -= vehicle.price;
-            return true;
-        }
-        System.out.println("not enough Cash");
-        return false;
+    public BigDecimal getterCash() {
+        return this.cash;
     }
 
-    public void checkCash(){
-        System.out.println("Your account balance: "+Math.round(cash));
+    public static void checkCash(Player player1){
+        System.out.println("Stan konta: " + player1.getterCash());
     }
 
     public void checkPlayerGarage(){
