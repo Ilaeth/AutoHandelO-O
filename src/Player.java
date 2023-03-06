@@ -40,18 +40,25 @@ public class Player {
         }
     }
 
+    public ArrayList<Vehicle> getterVehicles() {
+        return this.vehicles;
+    }
+
     public void checkPlayerGarage(){
-        for(int i=0;i<playerGarage.size();i++){
-            System.out.println(i+1+". "+playerGarage.get(i));
+        System.out.println("Twoje pojazdy");
+        int i = 1;
+        for (Vehicle v: Main.player1.getterVehicles()) {
+            System.out.println("Pojazd " + i + v);
+            i++;
         }
     }
 
     public void showHistory(){
         if (history.isEmpty()){
-            System.out.println("No history");
+            System.out.println("Brak historii");
         }else {
             for(int i=0;i<history.size();i++){
-                System.out.println("Transaction number "+(i+1)+". "+history.get(i));
+                System.out.println("Numer transakcji "+(i+1)+". "+history.get(i));
             }
         }
     }

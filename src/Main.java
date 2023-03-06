@@ -83,8 +83,11 @@ public class Main  {
                 backToMenu();
                 break;
             }
-            case 3:
-
+            case 3: {
+                player1.checkPlayerGarage();
+                backToMenu();
+                break;
+            }
             case 4:
 
             case 5:
@@ -98,8 +101,11 @@ public class Main  {
                 backToMenu();
                 break;
             }
-            case 9:
-
+            case 9: {
+                player1.showHistory();
+                backToMenu();
+                break;
+            }
             case 10:
 
             case 11:
