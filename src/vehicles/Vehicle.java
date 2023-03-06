@@ -60,6 +60,10 @@ public abstract class Vehicle{
         return vehicles;
     }
 
+    public BigDecimal getterValue() {
+        return this.value;
+    }
+
     @Override
     public String toString() {
         return  " {" + "\n" +

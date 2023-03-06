@@ -75,6 +75,11 @@ public class Main  {
                     System.out.println("Pojazd " + i + v);
                     i++;
                 }
+                System.out.println("Podaj numer pojazdu, który chcesz kupić");
+                Scanner userInput = new Scanner(System.in);
+                int choice;
+                choice = userInput.nextInt() - 1;
+                player1.buyVehicle(vehicles.get(choice),vehicles);
                 backToMenu();
                 break;
             }

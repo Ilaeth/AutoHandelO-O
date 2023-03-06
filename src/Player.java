@@ -24,6 +24,22 @@ public class Player {
         System.out.println("Stan konta: " + player1.getterCash());
     }
 
+    public void buyVehicle(Vehicle v, ArrayList<Vehicle> vehicles) {
+        BigDecimal price = new BigDecimal("0");
+        price = price.add(v.getterValue());
+        if (this.cash.compareTo(price) < 0) {
+            System.out.println("Nie stać cię! " + price);
+            System.out.println("Stan konta: " + Main.player1.getterCash());
+        } else {
+            this.cash = this.cash.subtract(price);
+            this.vehicles.add(v);
+            vehicles.remove(v);
+            System.out.println("Kupiłeś pojazd za " + price);
+            System.out.println("Stan konta po transakcji: " + Main.player1.getterCash());
+            history.add("Kupiłeś " + v + " za " + price);
+        }
+    }
+
     public void checkPlayerGarage(){
         for(int i=0;i<playerGarage.size();i++){
             System.out.println(i+1+". "+playerGarage.get(i));
