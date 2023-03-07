@@ -1,3 +1,5 @@
+import vehicles.SortVehicleAscending;
+import vehicles.SortVehicleDescending;
 import vehicles.Vehicle;
 
 import java.util.ArrayList;
@@ -67,9 +69,39 @@ public class Main  {
         switch (firstSwitch) {
             case 1: {
                 System.out.println("Lista pojazdów");
-                System.out.println(vehicles.toString());
-                backToMenu();
-                break;
+                System.out.println(" ");
+                System.out.println("1. Bez sortowania");
+                System.out.println("2. Sortowanie rosnąco");
+                System.out.println("3. Sortowanie malejąco");
+                System.out.println(" ");
+                System.out.println("Wybierz liczbę i napisz od 1 do 3");
+                int sort = scanner.nextInt();
+                switch (sort) {
+                    case 1: {
+                        System.out.println("Lista pojazdów - Bez sortowania");
+                        System.out.println(" ");
+                        System.out.println(vehicles.toString());
+                        backToMenu();
+                        break;
+                    }
+                    case 2: {
+                        System.out.println("Lista pojazdów - Sortowanie rosnąco");
+                        System.out.println(" ");
+                        vehicles.sort(new SortVehicleAscending());
+                        System.out.println(vehicles.toString());
+                        backToMenu();
+                        break;
+                    }
+                    case 3: {
+                        System.out.println("Lista pojazdów - Sortowanie malejąco");
+                        System.out.println(" ");
+                        vehicles.sort(new SortVehicleDescending());
+                        System.out.println(vehicles.toString());
+                        backToMenu();
+                        break;
+                    }
+                }
+
             }
             case 2: {
                 System.out.println("Lista pojazdów do kupienia");
@@ -102,7 +134,6 @@ public class Main  {
             }
             case 6: {
                 System.out.println("Podaj numer klienta, któremu chcesz sprzedać pojazd");
-                System.out.println(clients.toString());
                 int i = 1;
                 for (Client c : clients) {
                     System.out.println("Klient " + i + c);
