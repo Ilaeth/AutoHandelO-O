@@ -2,13 +2,14 @@ import vehicles.SortVehicleAscending;
 import vehicles.SortVehicleDescending;
 import vehicles.Vehicle;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main  {
     static Player player1 = new Player("Przemek");
     static ArrayList<Vehicle> vehicles = Vehicle.generateRandomVehicles(50);
-    static ArrayList<Client> clients = Client.generateRandomClient(50);
+    static ArrayList<Client> clients = Client.generateRandomClient(5);
 
 
     public static void main(String[] args) {
@@ -143,7 +144,74 @@ public class Main  {
                 break;
             }
             case 7: {
-
+                final BigDecimal DEFAULT_TV_AD = new BigDecimal("1000000.0");
+                final BigDecimal DEFAULT_YT_AD = new BigDecimal("850000.0");
+                final BigDecimal DEFAULT_INTERNET_AD = new BigDecimal("750000.0");
+                final BigDecimal DEFAULT_RADIO_AD = new BigDecimal("500000.0");
+                final BigDecimal DEFAULT_GAZETA_AD = new BigDecimal("250000.0");
+                final BigDecimal DEFAULT_PRODUKTY_AD = new BigDecimal("100000.0");
+                System.out.println("Kup reklamę");
+                System.out.println(" ");
+                System.out.println("1. Reklama w TV = " + DEFAULT_TV_AD);
+                System.out.println("2. Reklama na YT = " + DEFAULT_YT_AD);
+                System.out.println("3. Reklama w Internecie = " + DEFAULT_INTERNET_AD);
+                System.out.println("4. Reklama w Radiu = " + DEFAULT_RADIO_AD);
+                System.out.println("5. Reklama w Gazecie = " + DEFAULT_GAZETA_AD);
+                System.out.println("6. Produkty firmowe (kalendarz, notes) = " + DEFAULT_PRODUKTY_AD);
+                System.out.println(" ");
+                System.out.println("7. Jednak nie, powrót");
+                System.out.println(" ");
+                System.out.println("Wybierz liczbę i napisz od 1 do 7");
+                int ads = scanner.nextInt();
+                switch (ads) {
+                    case 1: {
+                        System.out.println("Kupiłeś reklamę - TV za = " + DEFAULT_TV_AD);
+                        player1.buy(DEFAULT_TV_AD);
+                        clients = Client.generateRandomClient(25);
+                        backToMenu();
+                        break;
+                    }
+                    case 2: {
+                        System.out.println("Kupiłeś reklamę - YT za = " + DEFAULT_YT_AD);
+                        player1.buy(DEFAULT_YT_AD);
+                        clients = Client.generateRandomClient(20);
+                        backToMenu();
+                        break;
+                    }
+                    case 3: {
+                        System.out.println("Kupiłeś reklamę - Internecie za = " + DEFAULT_INTERNET_AD);
+                        player1.buy(DEFAULT_INTERNET_AD);
+                        clients = Client.generateRandomClient(15);
+                        backToMenu();
+                        break;
+                    }
+                    case 4: {
+                        System.out.println("Kupiłeś reklamę - Radiu za = " + DEFAULT_RADIO_AD);
+                        player1.buy(DEFAULT_RADIO_AD);
+                        clients = Client.generateRandomClient(10);
+                        backToMenu();
+                        break;
+                    }
+                    case 5: {
+                        System.out.println("Kupiłeś reklamę - Gazecie za = " + DEFAULT_GAZETA_AD);
+                        player1.buy(DEFAULT_GAZETA_AD);
+                        clients = Client.generateRandomClient(7);
+                        backToMenu();
+                        break;
+                    }
+                    case 6: {
+                        System.out.println("Kupiłeś reklamę - Produkty firmowe za = " + DEFAULT_PRODUKTY_AD);
+                        player1.buy(DEFAULT_PRODUKTY_AD);
+                        clients = Client.generateRandomClient(5);
+                        backToMenu();
+                        break;
+                    }
+                    case 7: {
+                        System.out.println("Reklama - Jednak nie, powrót");
+                        backToMenu();
+                        break;
+                    }
+                }
             }
             case 8: {
                 Player.checkCash(player1);

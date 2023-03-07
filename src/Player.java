@@ -19,6 +19,14 @@ public class Player {
         return this.cash;
     }
 
+    public void buy(BigDecimal cash) {
+        this.cash = this.cash.subtract(cash);
+    }
+
+    public void sell(BigDecimal cash) {
+        this.cash = this.cash.add(cash);
+    }
+
     public static void checkCash(Player player1){
         System.out.println("Stan konta: " + player1.getterCash());
     }
