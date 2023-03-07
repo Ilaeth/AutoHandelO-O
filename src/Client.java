@@ -40,6 +40,14 @@ public class Client {
         return rand.setScale(2, RoundingMode.DOWN);
     }
 
+    public void buy(BigDecimal cash) {
+        this.cash = this.cash.subtract(cash);
+    }
+
+    public BigDecimal getterCash() {
+        return this.cash;
+    }
+
     @Override
     public String toString() {
         return  " {" + "\n" +

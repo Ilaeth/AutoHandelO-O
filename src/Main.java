@@ -134,12 +134,12 @@ public class Main  {
                 break;
             }
             case 6: {
-                System.out.println("Podaj numer klienta, któremu chcesz sprzedać pojazd");
-                int i = 1;
-                for (Client c : clients) {
-                    System.out.println("Klient " + i + c);
-                    i++;
-                }
+                System.out.println("Lista pojazdów do Sprzedania");
+                player1.checkPlayerGarage();
+                Scanner userInput = new Scanner(System.in);
+                int choice;
+                choice = userInput.nextInt() - 1;
+                player1.choiceClientToSell(player1.getterVehicle(choice),clients);
                 backToMenu();
                 break;
             }

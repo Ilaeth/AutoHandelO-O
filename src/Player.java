@@ -2,6 +2,7 @@ import vehicles.Vehicle;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Player {
     String playerName;
@@ -47,8 +48,41 @@ public class Player {
         }
     }
 
+    public void sellVehicle(Vehicle v, Client c, ArrayList<Client> clients) {
+        if (c.getterCash().compareTo(v.getterValue()) < 0){
+            System.out.println("Klienta nie stać! " + v.getterValue());
+            System.out.println("Stan konta klienta: " + c.getterCash());
+        } else {
+            this.sell(v.getterValue());
+            c.buy(v.getterValue());
+            System.out.println("Sprzedałeś pojazd za " + v.getterValue());
+            System.out.println("Stan konta po transakcji: " + Main.player1.getterCash());
+            System.out.println("Stan konta klienta: " + c.getterCash());
+            history.add("Sprzedałeś " + v + " za " + v.getterValue() + " klientowi " + c.name + " " + c.lastName);
+            vehicles.remove(v);
+
+        }
+    }
+
+    public void choiceClientToSell(Vehicle v, ArrayList<Client> clients) {
+        int i = 1;
+        for (Client c : clients) {
+            System.out.println("Klient " + i + c);
+            i++;
+        }
+        int choice;
+            Scanner userInput = new Scanner(System.in);
+            choice = userInput.nextInt() - 1;
+            System.out.println("Podaj numer klienta, któremu chcesz sprzedać pojazd");
+            sellVehicle(v, clients.get(choice), clients);
+    }
+
     public ArrayList<Vehicle> getterVehicles() {
         return this.vehicles;
+    }
+
+    public Vehicle getterVehicle(int index) {
+        return this.vehicles.get(index);
     }
 
     public void checkPlayerGarage(){
