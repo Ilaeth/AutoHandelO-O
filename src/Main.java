@@ -125,7 +125,12 @@ public class Main  {
                 break;
             }
             case 4: {
-
+                System.out.println("Wybierz mechanika:");
+                System.out.println("1. Janusz - " + "" + "100% szans na naprawę");
+                System.out.println("2. Marian - " + "" + "90% szans na naprawę");
+                System.out.println("3. Adrian - " + "" + "80% szans na naprawę, ale 2% że zepsuje coś innego podczas naprawy");
+                backToMenu();
+                break;
             }
             case 5: {
                 System.out.println("Lista potencjalnych klientów");
