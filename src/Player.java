@@ -10,10 +10,15 @@ public class Player {
     final static BigDecimal DEFAULT_CASH = new BigDecimal("1000000.0");
     final static BigDecimal DEFAULT_WASHING= new BigDecimal("1000.0");
     final static BigDecimal DEFAULT_TAX = new BigDecimal("0.02");
+    final static BigDecimal DEFAULT_ENTRY_REPAIR = new BigDecimal("0.21");
+    final static BigDecimal DEFAULT_ENTRY_REPAIR_COST = new BigDecimal("0.85");
+
+
 
     BigDecimal cash;
     ArrayList<Vehicle> vehicles = new ArrayList<>();
     ArrayList<String> history=new ArrayList<>();
+    ArrayList<String> historyRepair =new ArrayList<>();
 
     public Player(String playerName){
         this.playerName = playerName;
@@ -113,6 +118,16 @@ public class Player {
         }
     }
 
+    public void showHistoryRepair() {
+        if (historyRepair.isEmpty()){
+            System.out.println("Brak historii");
+        }else {
+            for(int i=0;i<historyRepair.size();i++){
+                System.out.println("Numer naprawy "+(i+1)+". "+ historyRepair.get(i));
+            }
+        }
+    }
+
     public void getterSumWash() {
         int i = 1;
         for (Vehicle v: Main.player1.getterVehicles()) {
@@ -121,5 +136,22 @@ public class Player {
             System.out.println("Suma posiadanych pojazdów do umycia: " + price);
         }
         System.out.println("Ostatnia cena to suma posiadanych wszystkich pojazdów do umycia" );
+    }
+
+    public void entryRepair(Vehicle v, ArrayList<Vehicle> vehicles) {
+        BigDecimal price = new BigDecimal("0");
+        price = price.add(v.getterValue().multiply(DEFAULT_ENTRY_REPAIR));
+        BigDecimal cost = new BigDecimal("0");
+        cost = cost.add(v.getterValue().subtract(v.getterValue().multiply(DEFAULT_ENTRY_REPAIR_COST)));
+        if (this.cash.compareTo(price) < 0) {
+            System.out.println("Nie stać cię! " + price);
+            System.out.println("Stan konta: " + Main.player1.getterCash());
+        } else {
+            this.buy(cost);
+            v.addValueRepair(price);
+            System.out.println("Naprawiłeś pojazd i zwiększono jego wartość za" + cost + " na " + price);
+            historyRepair.add("Naprawa " + v + " za " + cost);
+        }
+
     }
 }

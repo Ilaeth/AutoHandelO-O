@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Main  {
     static Player player1 = new Player("Przemek");
-    static ArrayList<Vehicle> vehicles = Vehicle.generateRandomVehicles(10);
+    static ArrayList<Vehicle> vehicles = Vehicle.generateRandomVehicles(5);
     static ArrayList<Client> clients = Client.generateRandomClient(5);
 
 
@@ -126,10 +126,16 @@ public class Main  {
                 break;
             }
             case 4: {
-                System.out.println("Wybierz mechanika:");
-                System.out.println("1. Janusz - " + "" + "100% szans na naprawę");
-                System.out.println("2. Marian - " + "" + "90% szans na naprawę");
-                System.out.println("3. Adrian - " + "" + "80% szans na naprawę, ale 2% że zepsuje coś innego podczas naprawy");
+                //System.out.println("Wybierz mechanika:");
+                //System.out.println("1. Janusz - " + "" + "100% szans na naprawę");
+                //System.out.println("2. Marian - " + "" + "90% szans na naprawę");
+                //System.out.println("3. Adrian - " + "" + "80% szans na naprawę, ale 2% że zepsuje coś innego podczas naprawy");
+                System.out.println("Podaj numer pojazdu, który chcesz naprawić");
+                player1.checkPlayerGarage();
+                Scanner userInput = new Scanner(System.in);
+                int choice;
+                choice = userInput.nextInt() - 1;
+                player1.entryRepair(player1.getterVehicle(choice), vehicles);
                 backToMenu();
                 break;
             }
@@ -175,6 +181,7 @@ public class Main  {
                         System.out.println("Kupiłeś reklamę - TV za = " + DEFAULT_TV_AD);
                         player1.buy(DEFAULT_TV_AD);
                         clients = Client.generateRandomClient(25);
+                        player1.history.add("Kupiłeś reklamę - TV za " + DEFAULT_TV_AD);
                         backToMenu();
                         break;
                     }
@@ -182,6 +189,7 @@ public class Main  {
                         System.out.println("Kupiłeś reklamę - YT za = " + DEFAULT_YT_AD);
                         player1.buy(DEFAULT_YT_AD);
                         clients = Client.generateRandomClient(20);
+                        player1.history.add("Kupiłeś reklamę - YT za " + DEFAULT_YT_AD);
                         backToMenu();
                         break;
                     }
@@ -189,6 +197,7 @@ public class Main  {
                         System.out.println("Kupiłeś reklamę - Internecie za = " + DEFAULT_INTERNET_AD);
                         player1.buy(DEFAULT_INTERNET_AD);
                         clients = Client.generateRandomClient(15);
+                        player1.history.add("Kupiłeś reklamę - Internecie za " + DEFAULT_INTERNET_AD);
                         backToMenu();
                         break;
                     }
@@ -196,6 +205,7 @@ public class Main  {
                         System.out.println("Kupiłeś reklamę - Radiu za = " + DEFAULT_RADIO_AD);
                         player1.buy(DEFAULT_RADIO_AD);
                         clients = Client.generateRandomClient(10);
+                        player1.history.add("Kupiłeś reklamę - Radiu za " + DEFAULT_RADIO_AD);
                         backToMenu();
                         break;
                     }
@@ -203,6 +213,7 @@ public class Main  {
                         System.out.println("Kupiłeś reklamę - Gazecie za = " + DEFAULT_GAZETA_AD);
                         player1.buy(DEFAULT_GAZETA_AD);
                         clients = Client.generateRandomClient(7);
+                        player1.history.add("Kupiłeś reklamę - Gazecie za " + DEFAULT_GAZETA_AD);
                         backToMenu();
                         break;
                     }
@@ -210,6 +221,7 @@ public class Main  {
                         System.out.println("Kupiłeś reklamę - Produkty firmowe za = " + DEFAULT_PRODUKTY_AD);
                         player1.buy(DEFAULT_PRODUKTY_AD);
                         clients = Client.generateRandomClient(5);
+                        player1.history.add("Kupiłeś reklamę - Produkty firmowe za " + DEFAULT_PRODUKTY_AD);
                         backToMenu();
                         break;
                     }
@@ -231,6 +243,7 @@ public class Main  {
                 break;
             }
             case 10: {
+                player1.showHistoryRepair();
                 backToMenu();
                 break;
             }

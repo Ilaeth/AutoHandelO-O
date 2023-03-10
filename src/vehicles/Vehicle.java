@@ -64,6 +64,10 @@ public abstract class Vehicle{
         return this.value;
     }
 
+    public void addValueRepair(BigDecimal value) {
+        this.value = this.value.add(value);
+    }
+
     @Override
     public String toString() {
         return  " {" + "\n" +
