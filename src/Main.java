@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Main  {
     static Player player1 = new Player("Przemek");
-    static ArrayList<Vehicle> vehicles = Vehicle.generateRandomVehicles(50);
+    static ArrayList<Vehicle> vehicles = Vehicle.generateRandomVehicles(10);
     static ArrayList<Client> clients = Client.generateRandomClient(5);
 
 
@@ -116,6 +116,7 @@ public class Main  {
                 int choice;
                 choice = userInput.nextInt() - 1;
                 player1.buyVehicle(vehicles.get(choice),vehicles);
+                vehicles = Vehicle.generateRandomVehicles(10);
                 backToMenu();
                 break;
             }
@@ -145,6 +146,7 @@ public class Main  {
                 int choice;
                 choice = userInput.nextInt() - 1;
                 player1.choiceClientToSell(player1.getterVehicle(choice),clients);
+                vehicles = Vehicle.generateRandomVehicles(10);
                 backToMenu();
                 break;
             }
@@ -229,10 +231,13 @@ public class Main  {
                 break;
             }
             case 10: {
-
+                backToMenu();
+                break;
             }
             case 11: {
-
+                player1.getterSumWash();
+                backToMenu();
+                break;
             }
             case 12: {
                 System.out.println("Koniec?!?! Napewno?");

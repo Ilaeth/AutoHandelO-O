@@ -1,12 +1,16 @@
 import vehicles.Vehicle;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Player {
     String playerName;
     final static BigDecimal DEFAULT_CASH = new BigDecimal("1000000.0");
+    final static BigDecimal DEFAULT_WASHING= new BigDecimal("1000.0");
+    final static BigDecimal DEFAULT_TAX = new BigDecimal("0.02");
+
     BigDecimal cash;
     ArrayList<Vehicle> vehicles = new ArrayList<>();
     ArrayList<String> history=new ArrayList<>();
@@ -35,6 +39,8 @@ public class Player {
     public void buyVehicle(Vehicle v, ArrayList<Vehicle> vehicles) {
         BigDecimal price = new BigDecimal("0");
         price = price.add(v.getterValue());
+        price = price.add(DEFAULT_WASHING);
+        price = price.add(v.getterValue().multiply(DEFAULT_TAX, new MathContext(2)));
         if (this.cash.compareTo(price) < 0) {
             System.out.println("Nie stać cię! " + price);
             System.out.println("Stan konta: " + Main.player1.getterCash());
@@ -43,6 +49,7 @@ public class Player {
             this.vehicles.add(v);
             vehicles.remove(v);
             System.out.println("Kupiłeś pojazd za " + price);
+            System.out.println("Pojazd po umyciu i opłaceniu 2% podatku");
             System.out.println("Stan konta po transakcji: " + Main.player1.getterCash());
             history.add("Kupiłeś " + v + " za " + price);
         }
@@ -54,13 +61,15 @@ public class Player {
             System.out.println("Stan konta klienta: " + c.getterCash());
         } else {
             this.sell(v.getterValue());
+            this.buy(v.getterValue().multiply(DEFAULT_TAX, new MathContext(2)));
+            this.buy(DEFAULT_WASHING);
             c.buy(v.getterValue());
             System.out.println("Sprzedałeś pojazd za " + v.getterValue());
+            System.out.println("Pojazd po umyciu i opłaceniu 2% podatku");
             System.out.println("Stan konta po transakcji: " + Main.player1.getterCash());
             System.out.println("Stan konta klienta: " + c.getterCash());
             history.add("Sprzedałeś " + v + " za " + v.getterValue() + " klientowi " + c.name + " " + c.lastName);
             vehicles.remove(v);
-
         }
     }
 
@@ -102,5 +111,15 @@ public class Player {
                 System.out.println("Numer transakcji "+(i+1)+". "+history.get(i));
             }
         }
+    }
+
+    public void getterSumWash() {
+        int i = 1;
+        for (Vehicle v: Main.player1.getterVehicles()) {
+            i++;
+            int price = i++ * 1000 / 2;
+            System.out.println("Suma posiadanych pojazdów do umycia: " + price);
+        }
+        System.out.println("Ostatnia cena to suma posiadanych wszystkich pojazdów do umycia" );
     }
 }
