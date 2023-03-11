@@ -10,6 +10,7 @@ public class Main  {
     static Player player1 = new Player("Przemek");
     static ArrayList<Vehicle> vehicles = Vehicle.generateRandomVehicles(5);
     static ArrayList<Client> clients = Client.generateRandomClient(5);
+    static int round = 0;
 
 
     public static void main(String[] args) {
@@ -117,6 +118,7 @@ public class Main  {
                 choice = userInput.nextInt() - 1;
                 player1.buyVehicle(vehicles.get(choice),vehicles);
                 vehicles = Vehicle.generateRandomVehicles(10);
+                player1.round();
                 backToMenu();
                 break;
             }
@@ -136,6 +138,7 @@ public class Main  {
                 int choice;
                 choice = userInput.nextInt() - 1;
                 player1.entryRepair(player1.getterVehicle(choice), vehicles);
+                player1.round();
                 backToMenu();
                 break;
             }
@@ -153,6 +156,7 @@ public class Main  {
                 choice = userInput.nextInt() - 1;
                 player1.choiceClientToSell(player1.getterVehicle(choice),clients);
                 vehicles = Vehicle.generateRandomVehicles(10);
+                player1.round();
                 backToMenu();
                 break;
             }
@@ -182,6 +186,7 @@ public class Main  {
                         player1.buy(DEFAULT_TV_AD);
                         clients = Client.generateRandomClient(25);
                         player1.history.add("Kupiłeś reklamę - TV za " + DEFAULT_TV_AD);
+                        player1.round();
                         backToMenu();
                         break;
                     }
@@ -190,6 +195,7 @@ public class Main  {
                         player1.buy(DEFAULT_YT_AD);
                         clients = Client.generateRandomClient(20);
                         player1.history.add("Kupiłeś reklamę - YT za " + DEFAULT_YT_AD);
+                        player1.round();
                         backToMenu();
                         break;
                     }
@@ -198,6 +204,7 @@ public class Main  {
                         player1.buy(DEFAULT_INTERNET_AD);
                         clients = Client.generateRandomClient(15);
                         player1.history.add("Kupiłeś reklamę - Internecie za " + DEFAULT_INTERNET_AD);
+                        player1.round();
                         backToMenu();
                         break;
                     }
@@ -206,6 +213,7 @@ public class Main  {
                         player1.buy(DEFAULT_RADIO_AD);
                         clients = Client.generateRandomClient(10);
                         player1.history.add("Kupiłeś reklamę - Radiu za " + DEFAULT_RADIO_AD);
+                        player1.round();
                         backToMenu();
                         break;
                     }
@@ -214,6 +222,7 @@ public class Main  {
                         player1.buy(DEFAULT_GAZETA_AD);
                         clients = Client.generateRandomClient(7);
                         player1.history.add("Kupiłeś reklamę - Gazecie za " + DEFAULT_GAZETA_AD);
+                        player1.round();
                         backToMenu();
                         break;
                     }
@@ -222,6 +231,7 @@ public class Main  {
                         player1.buy(DEFAULT_PRODUKTY_AD);
                         clients = Client.generateRandomClient(5);
                         player1.history.add("Kupiłeś reklamę - Produkty firmowe za " + DEFAULT_PRODUKTY_AD);
+                        player1.round();
                         backToMenu();
                         break;
                     }

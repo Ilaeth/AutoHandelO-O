@@ -149,9 +149,14 @@ public class Player {
         } else {
             this.buy(cost);
             v.addValueRepair(price);
-            System.out.println("Naprawiłeś pojazd i zwiększono jego wartość za" + cost + " na " + price);
+            System.out.println("Naprawiłeś pojazd i zwiększono jego wartość za " + cost + " na " + price);
             historyRepair.add("Naprawa " + v + " za " + cost);
         }
 
+    }
+
+    public void round () {
+        Main.round++;
+        System.out.println("Wykonano ruch: " + Main.round);
     }
 }
